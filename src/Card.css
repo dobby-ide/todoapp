@@ -1,0 +1,86 @@
+body{
+margin-left:40px;
+  margin-top:30px;
+}
+.App{
+  width:800px;
+  background-color: rgb(187, 187, 187);
+  display:grid;
+grid-template-columns: 200px, 600px;
+}
+.todolist{
+ 
+  width:600px;;
+  font-size:10px;
+  background-color: rgb(255, 255, 255);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+grid-column-start: 2;
+grid-column-end: 2;
+grid-row-start: 1;
+grid-row-end: 5;
+}
+.form{
+ 
+  max-width:200px;
+  background-color: antiquewhite;
+  grid-column-start: 1;
+grid-column-end: 1;
+grid-row-start: 1;
+grid-row-end: 5;
+
+
+}
+.todo{
+  font-size: larger;
+}
+.tasks{border:solid 1px black;
+  width:600px;
+  font-size: small;
+  display:grid;
+  grid-template-columns: 0.2fr,4fr,0.5fr,1fr,1fr;
+   grid-template-rows: 30px,4px;
+}
+.todoid{
+  margin-left:2px;
+  max-width:20px;
+  color:green;
+  grid-column-start: 1;
+grid-column-end: 1;
+grid-row-start: 1;
+grid-row-end: 1;
+}
+.task{
+  cursor:pointer;
+  width:350px;
+  padding:0px;
+  color:red;
+  font-size: 20px;
+  grid-column-start: 2;
+grid-column-end: 3;
+grid-row-start: 1;
+grid-row-end: 1;
+}
+.tag{
+width:120px;
+   grid-column-start: 4;
+grid-column-end: 4;
+grid-row-start: 1;
+grid-row-end: 1;
+}
+.modifyitembutton{
+  width:90px;
+  color:white;
+ 
+  grid-column-start: 5;
+grid-column-end: 5;
+grid-row-start: 1;
+grid-row-end: 1;
+
+}
+.tododate{
+    grid-column-start: 2;
+grid-column-end: 2;
+grid-row-start: 2;
+grid-row-end: 2;
+
+}
