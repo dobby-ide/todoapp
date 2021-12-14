@@ -7,10 +7,13 @@ const ToDoList = ({
   deletingCrossed,
   modifying,
   sortByDate,
+  sortBydatenow,
   tagging,
+  up,
+  down,
+  filteredlist
 }) => {
-  console.log(todolist);
-
+ 
   return (
     <Card className="todolist">
       <div>
@@ -23,12 +26,15 @@ const ToDoList = ({
                 handleToggle={handleToggle}
                 modifying={modifying}
                 tagging={tagging}
+                up={up}
+                down={down}
               />{' '}
             </div>
           );
         })}
         <button onClick={deletingCrossed}>delete crossed</button>
         <button onClick={sortByDate}>sort by date</button>
+        <button onClick={sortBydatenow}>sort by last modification time</button>
       </div>
     </Card>
   );

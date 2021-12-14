@@ -1,8 +1,41 @@
 import React, { useState } from 'react';
 import Card from './Card';
-const ToDo = ({ todo, handleToggle, modifying, tagging }) => {
+const ToDo = ({ todo, handleToggle, modifying, tagging, up, down}) => {
   const [editMode, setEditMode] = useState(false);
   const [singleTaskEdit, setSingleTaskEdit] = useState(false);
+  const [tag, setTag] = useState("");
+  console.log("inside ToDo")
+  
+
+  //BUTTONS TO SHIFT UP AN ITEM ON THE LIST
+  const onUp = (e) => {
+    e.preventDefault()
+up(e.target.id)
+  };
+  //BUTTONS TO SHIFT DOWN AN ITEM ON THE LIST
+
+  const onDown = (e) => {
+    e.preventDefault()
+    down(e.target.id)
+  };
+
+  const onChangingInput = (e) => {
+    e.preventDefault();
+    const data = { id: e.target.id, tag: e.target.value };
+    setTag(data);
+  };
+  const onAddATag = (e) => {
+    // here we create an object to be sent to App that contains
+    //1) the id of the button
+    //2 the data inside the textfield input(tag)
+    e.preventDefault();
+    tagging(tag);
+    setTag("");
+  };
+  const exitModifyStatus = () => {
+    setSingleTaskEdit(false);
+  };
+
   const addATag = (e) => {
     //console.log(e.target.innerHTML);
     tagging(e.target.innerHTML);
@@ -12,10 +45,10 @@ const ToDo = ({ todo, handleToggle, modifying, tagging }) => {
     setEditMode(false);
   };
   const onModifying = (e) => {
-    //console.log(e.target.id);
+  
     const modifiedTask = {
-      id: e.currentTarget.id,
-      task: e.currentTarget.value,
+      id:e.target.id,
+      task: e.target.value,
     };
     modifying(modifiedTask);
   };
@@ -25,14 +58,10 @@ const ToDo = ({ todo, handleToggle, modifying, tagging }) => {
     handleToggle(event.currentTarget.id);
   };
   const modifyingItemHandler = (e) => {
+    e.preventDefault();
     setEditMode(true);
-    //find the div name="task" where id =e.target.id
-    const temp = document.getElementsByName('task');
-    //console.log(temp[e.target.id - 1].innerHTML);
-    modifying(temp[e.target.id - 1].id);
-    //then replace it with a text input where the content is the same:
-    //1) create an input field
-    //console.log(e.target.id);
+    
+    const temp = document.getElementsByName("task");
   };
   return (
     <Card className="todo">
@@ -47,22 +76,41 @@ const ToDo = ({ todo, handleToggle, modifying, tagging }) => {
                   <div
                     name="task"
                     id={todo.id}
-                    className={todo.complete ? 'strike' : ''}
+                    className={todo.complete ? "strike" : ""}
                     onClick={clickHandler}
                   >
                     {todo.task}
-                  </div>{' '}
+                  </div>{" "}
                   <button type="button" onClick={editCompleted}>
                     edit completed
                   </button>
-                  {' in edit mode'}
+                  {" in edit mode"}
                 </div>
               </div>
+            </div>
+          </Card>
+        ) : singleTaskEdit ? (
+          <Card>
+            {/* adding tag and features view */}
+            <div>{todo.task}</div>
+            <div>
+              <input
+                type="text"
+                id={todo.id}
+                onChange={onChangingInput}
+              ></input>{" "}
+              <button onClick={onAddATag} id={todo.id}>
+                add TAG
+              </button>
+            </div>
+            <div className="returnbutton">
+              <button onClick={exitModifyStatus}>return to main view</button>
             </div>
           </Card>
         ) : (
           <Card>
             <div className="tasks">
+              {/* modify single item */}
               <div className="todoid" onClick={addATag}>
                 {todo.id}
               </div>
@@ -70,7 +118,7 @@ const ToDo = ({ todo, handleToggle, modifying, tagging }) => {
                 <div
                   name="task"
                   id={todo.id}
-                  className={todo.complete ? 'strike' : ''}
+                  className={todo.complete ? "strike" : ""}
                   onClick={clickHandler}
                 >
                   {todo.task}
@@ -84,6 +132,16 @@ const ToDo = ({ todo, handleToggle, modifying, tagging }) => {
               </div>
               <div className="tododate">
                 <div className={todo.date}>{todo.date}</div>
+              </div>
+              <div className="up" id={todo.id}>
+                <button id={todo.id} onClick={onUp}>
+                  up
+                </button>
+              </div>
+              <div className="down">
+                <button id={todo.id} onClick={onDown}>
+                  down
+                </button>
               </div>
             </div>
           </Card>
