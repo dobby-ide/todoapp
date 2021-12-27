@@ -1,22 +1,58 @@
 import React, { useState } from 'react';
 import Card from './Card';
-const ToDo = ({ todo, handleToggle, modifying, tagging, up, down}) => {
+const ToDo = ({
+  todolist,
+  todo,
+  handleToggle,
+  modifying,
+  tagging,
+  up,
+  down,
+  listsname,
+  sendingTaskToChangeList,
+  deletingATask
+}) => {
   const [editMode, setEditMode] = useState(false);
   const [singleTaskEdit, setSingleTaskEdit] = useState(false);
   const [tag, setTag] = useState("");
-  console.log("inside ToDo")
-  
+
+  //Pass id of the task and name of the list we need to move the task to
+
+  const onChangeListName = (e) => {
+    if (e.target.value != -1){
+    console.log("here now!!!!!!!")
+    console.log(e.target.value)
+    const actualList=e.target.getAttribute("list")
+    
+    const listName = e.target.value;
+    const id = e.target.id;
+    if(actualList!=listName){
+    const task = e.target.getAttribute("task");
+    const date = e.target.getAttribute("date");
+    const tag = e.target.getAttribute("tag");
+    const obj = {
+      id: id,
+      task: task,
+      date: date,
+      tag: [tag],
+      list: listName,
+      datenow: Date.now(),
+    };
+    deletingATask(e.target.id)
+    sendingTaskToChangeList(obj, listName);
+  }}
+  };
 
   //BUTTONS TO SHIFT UP AN ITEM ON THE LIST
   const onUp = (e) => {
-    e.preventDefault()
-up(e.target.id)
+    e.preventDefault();
+    up(e.target.id);
   };
   //BUTTONS TO SHIFT DOWN AN ITEM ON THE LIST
 
   const onDown = (e) => {
-    e.preventDefault()
-    down(e.target.id)
+    e.preventDefault();
+    down(e.target.id);
   };
 
   const onChangingInput = (e) => {
@@ -45,9 +81,8 @@ up(e.target.id)
     setEditMode(false);
   };
   const onModifying = (e) => {
-  
     const modifiedTask = {
-      id:e.target.id,
+      id: e.target.id,
       task: e.target.value,
     };
     modifying(modifiedTask);
@@ -60,7 +95,7 @@ up(e.target.id)
   const modifyingItemHandler = (e) => {
     e.preventDefault();
     setEditMode(true);
-    
+
     const temp = document.getElementsByName("task");
   };
   return (
@@ -86,6 +121,27 @@ up(e.target.id)
                   </button>
                   {" in edit mode"}
                 </div>
+              </div>
+              <div>
+                <select
+                key={todo.id}
+                  id={todo.id}
+                  task={todo.task}
+                  date={todo.date}
+                  tag={todo.tag}
+                  list={todo.list}
+                  onChange={onChangeListName}
+                >
+                  <option key={todo.id} value={-1}>put task to another list</option>
+                  {listsname.map((lists) => {
+                    return (
+                      <option key={lists} value={lists}>
+                        {lists}
+                      </option>
+                    );
+                  })}
+                </select>
+                
               </div>
             </div>
           </Card>

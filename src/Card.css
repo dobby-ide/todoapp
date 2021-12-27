@@ -1,9 +1,11 @@
 body{
+  width:1fr;
 margin-left:40px;
   margin-top:30px;
 }
 .App{
-  width:800px;
+  
+  width:0.9fr;
   background-color: rgb(187, 187, 187);
   display:grid;
 grid-template-columns: 200px, 600px;
@@ -16,12 +18,12 @@ grid-row-end: 1;
 }
 .todolist{
  
-  width:600px;;
+  width:0.8fr;
   font-size:10px;
   background-color: rgb(255, 255, 255);
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-grid-column-start: 2;
-grid-column-end: 2;
+grid-column-start: 1;
+grid-column-end: 5;
 grid-row-start: 2;
 grid-row-end: 5;
 }
@@ -33,18 +35,20 @@ grid-column-end: 5;
 grid-row-start: 6;
 grid-row-end: 7;
 }
-/* .tagbrowser{
-  grid-column-start: 1;
-grid-column-end: 2;
-grid-row-start: 4;
-grid-row-end: 5; */
+.browsebytextform{
+grid-column-start: 1;
+grid-column-end: 5;
+grid-row-start: 5;
+grid-row-end: 6;
+  color:purple;
+}
 
 .form{
  
-  max-width:200px;
+  width:0.2fr;
   background-color: antiquewhite;
-  grid-column-start: 1;
-grid-column-end: 1;
+  grid-column-start: 5;
+grid-column-end: 6;
 grid-row-start: 2;
 grid-row-end: 5;
 
@@ -53,12 +57,13 @@ grid-row-end: 5;
 .todo{
   font-size: larger;
 }
-.tasks{border:solid 1px black;
-  width:600px;
+.tasks{
+  border:solid 1px black;
+  width:1fr;
   font-size: small;
   display:grid;
   grid-template-columns: 0.2fr,4fr,0.5fr,1fr,1fr;
-   grid-template-rows: 30px,4px;
+  grid-template-rows: 30px,4px;
 }
 .todoid{
   margin-left:2px;
@@ -71,12 +76,12 @@ grid-row-end: 1;
 }
 .task{
   cursor:pointer;
-  width:350px;
+  width:0.9fr;
   padding:0px;
-  color:red;
+  color:rgb(0, 0, 0);
   font-size: 20px;
   grid-column-start: 2;
-grid-column-end: 3;
+grid-column-end: 5;
 grid-row-start: 1;
 grid-row-end: 1;
 }
@@ -119,5 +124,116 @@ grid-row-end: 3;
 .returnedtasksbytags{
 
   width:400px;
-  color:red;
+  color:rgb(255, 255, 255);
+}
+.menulistcontainer{
+  background-color: rgb(124, 0, 77);
+  display: grid;
+}
+.availablelists{
+  padding:10px;
+  color:white;
+  border:solid 1px black;
+   grid-column-start: 1;
+grid-column-end: 1;
+grid-row-start: 2;
+grid-row-end: 2;
+}
+.menulist{
+  display:inline-block;
+  color:white;
+   grid-column-start: 1;
+grid-column-end: 1;
+grid-row-start: 1;
+grid-row-end: 1;
+  
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #300f0f;
+}
+.momcontainer{
+  background-color:blueviolet;
+}
+.INSTRUCTIONS{
+  color:white;
+}
+@media(max-width:600px){
+
+  body{
+    background-color:rosybrown;
+    margin-left:10px;
+  margin-top:5px;
+  }
+  .App{
+  width:500px;
+  background-color: rgb(187, 187, 187);
+  display:grid;
+grid-template-columns: 100px, 400px;
+}
+.menu{
+grid-column-start: 1;
+grid-column-end: 2;
+grid-row-start: 1;
+grid-row-end: 1;
+}
+.todolist{
+ 
+  width:500px;;
+  font-size:7px;
+  background-color: rgb(255, 255, 255);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+grid-column-start: 1;
+grid-column-end: 3;
+grid-row-start: 2;
+grid-row-end: 5;
+}
+.browsetagform{
+  color:green;
+  border:solid black 1px;
+  grid-column-start: 1;
+grid-column-end: 5;
+grid-row-start: 6;
+grid-row-end: 7;
+}
+.browsebytextform{
+grid-column-start: 1;
+grid-column-end: 5;
+grid-row-start: 5;
+grid-row-end: 6;
+  color:rgb(250, 110, 250);
+}
+
+.form{
+ 
+  max-width:500px;
+  background-color: rgb(128, 101, 67);
+  grid-column-start: 1;
+grid-column-end: 5;
+grid-row-start: 7;
+grid-row-end: 8;
+
+
+}
+
 }

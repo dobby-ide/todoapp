@@ -96,30 +96,28 @@ let dataFromTag = {id:"",task:"",tag:"",date:""}
             <input type="text" onChange={onBrowseInput}></input>
           </div>
           <div>
-            <button type="submit" onClick={submitBrowseFilter}>
-              filter
-            </button>
+           
           </div>
           <div className="selectionoftags">
-            <label>choose a tag</label>
+            {/* <label>choose a tag</label>
             <select onChange={selecting}><option value = {-1}>select</option>{theTags.map((tag)=>{
               return(<option key={tag} value={tag} onFocus={selectingTag}>{tag}</option>)
-            })}</select>
+            })}</select> */}
           </div>
         </form>
         
-       {theTags.map((thetag)=>{
+       {/* {theTags.map((thetag)=>{
          return(<div key={thetag}>{thetag}</div>)
-       })}
+       })} */}
        
       </div>
       {dataToRender.map((data)=>{
         return (
           <div className = "returnedtasksbytags" key = {data}>
             
-            <p key={data}>{data.id},{data.task},{data.date}</p>
+            <p key={data}>Title: {data.task}. Due day:{data.date}</p>
           </div>
-        );
+        ); 
       })}
     </Card>
   );

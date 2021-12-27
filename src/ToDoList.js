@@ -2,6 +2,10 @@ import React from 'react';
 import ToDo from './ToDo';
 import Card from './Card';
 const ToDoList = ({
+  deletingATask,
+  callTodo,
+  listId,
+  listsname,
   todolist,
   handleToggle,
   deletingCrossed,
@@ -11,9 +15,12 @@ const ToDoList = ({
   tagging,
   up,
   down,
-  filteredlist
+  filteredlist,
+  changeList,
+  onChangingList,
+  confirmChangeList,
+  sendingTaskToChangeList,
 }) => {
- 
   return (
     <Card className="todolist">
       <div>
@@ -21,6 +28,15 @@ const ToDoList = ({
           return (
             <div key={todo.id}>
               <ToDo
+              deletingATask={deletingATask}
+              todolist={todolist}
+                sendingTaskToChangeList={sendingTaskToChangeList}
+                callTodo={callTodo}
+                onConfirmFromApp={confirmChangeList}
+                appTochangeList={onChangingList}
+                changeList={changeList}
+                listId={listId}
+                listsname={listsname}
                 key={todo.id}
                 todo={todo}
                 handleToggle={handleToggle}
@@ -28,7 +44,7 @@ const ToDoList = ({
                 tagging={tagging}
                 up={up}
                 down={down}
-              />{' '}
+              />{" "}
             </div>
           );
         })}
