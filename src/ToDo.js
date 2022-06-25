@@ -102,49 +102,48 @@ const ToDo = ({
     <Card className="todo">
       <div>
         {editMode ? (
-          <Card>
-            <div className="tasks">
-              <div className="todoid">
-                <input id={todo.id} type="text" onChange={onModifying} />
+          <div className="todo__editmode">
+            <div className="todoid">
+              <input id={todo.id} type="text" onChange={onModifying} />
 
-                <div className="task">
-                  <div
-                    name="task"
-                    id={todo.id}
-                    className={todo.complete ? "strike" : ""}
-                    onClick={clickHandler}
-                  >
-                    {todo.task}
-                  </div>{" "}
-                  <button type="button" onClick={editCompleted}>
-                    edit completed
-                  </button>
-                  {" in edit mode"}
-                </div>
-              </div>
-              <div>
-                <select
-                key={todo.id}
+              <div className="task">
+                <div
+                  name="task"
                   id={todo.id}
-                  task={todo.task}
-                  date={todo.date}
-                  tag={todo.tag}
-                  list={todo.list}
-                  onChange={onChangeListName}
+                  className={todo.complete ? 'strike' : ''}
+                  onClick={clickHandler}
                 >
-                  <option key={todo.id} value={-1}>put task to another list</option>
-                  {listsname.map((lists) => {
-                    return (
-                      <option key={lists} value={lists}>
-                        {lists}
-                      </option>
-                    );
-                  })}
-                </select>
-                
+                  {todo.task}
+                </div>{' '}
+                <button type="button" onClick={editCompleted}>
+                  edit completed
+                </button>
+                {' in edit mode'}
               </div>
             </div>
-          </Card>
+            <div>
+              <select
+                key={todo.id}
+                id={todo.id}
+                task={todo.task}
+                date={todo.date}
+                tag={todo.tag}
+                list={todo.list}
+                onChange={onChangeListName}
+              >
+                <option key={todo.id} value={-1}>
+                  put task to another list
+                </option>
+                {listsname.map((lists) => {
+                  return (
+                    <option key={lists} value={lists}>
+                      {lists}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+          </div>
         ) : singleTaskEdit ? (
           <Card>
             {/* adding tag and features view */}
@@ -154,7 +153,7 @@ const ToDo = ({
                 type="text"
                 id={todo.id}
                 onChange={onChangingInput}
-              ></input>{" "}
+              ></input>{' '}
               <button onClick={onAddATag} id={todo.id}>
                 add TAG
               </button>
@@ -165,38 +164,42 @@ const ToDo = ({
           </Card>
         ) : (
           <Card>
-            <div className="tasks">
+            <div className="todo__container">
               {/* modify single item */}
-              <div className="todoid" onClick={addATag}>
+              <div className="todo__container-todoid" onClick={addATag}>
                 {todo.id}
               </div>
-              <div className="task">
+              <div className="todo__container-task">
                 <div
                   name="task"
                   id={todo.id}
-                  className={todo.complete ? "strike" : ""}
+                  className={todo.complete ? 'strike' : ''}
                   onClick={clickHandler}
                 >
                   {todo.task}
                 </div>
               </div>
-              <div className="tag">tag:{todo.tag}</div>
-              <div className="modifyitembutton">
-                <button id={todo.id} onClick={modifyingItemHandler}>
-                  modify item
-                </button>
+              <div className="todo__container-tag">tag:{todo.tag}</div>
+              <div className="todo__container-modify-btn">
+                <div
+                  className="todo__container-modify-btn-div"
+                  id={todo.id}
+                  onClick={modifyingItemHandler}
+                >
+                  modify
+                </div>
               </div>
-              <div className="tododate">
+              <div className="todo__container-date">
                 <div className={todo.date}>{todo.date}</div>
               </div>
-              <div className="up" id={todo.id}>
+              <div className="todo__container-up" id={todo.id}>
                 <button id={todo.id} onClick={onUp}>
-                  up
+                  &uarr;
                 </button>
               </div>
-              <div className="down">
+              <div className="todo__container-down">
                 <button id={todo.id} onClick={onDown}>
-                  down
+                  &darr;
                 </button>
               </div>
             </div>

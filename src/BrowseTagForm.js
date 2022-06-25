@@ -88,36 +88,30 @@ let dataFromTag = {id:"",task:"",tag:"",date:""}
   
   //then render the array via MAP
   return (
-    <Card className = "browsetagform">
-      <div>
-        <form>
-          <div>
-            <label>browse by tag</label>
-            <input type="text" onChange={onBrowseInput}></input>
-          </div>
-          <div>
-           
-          </div>
-          <div className="selectionoftags">
-            {/* <label>choose a tag</label>
-            <select onChange={selecting}><option value = {-1}>select</option>{theTags.map((tag)=>{
-              return(<option key={tag} value={tag} onFocus={selectingTag}>{tag}</option>)
-            })}</select> */}
-          </div>
-        </form>
-        
-       {/* {theTags.map((thetag)=>{
-         return(<div key={thetag}>{thetag}</div>)
-       })} */}
-       
-      </div>
-      {dataToRender.map((data)=>{
+    <Card className="browsetagform">
+      <form className="browsetag__container">
+        <div className="browsetag__container-group">
+          <input
+            className="browsetag__container-group-input"
+            id="tagbrowse"
+            type="text"
+            onChange={onBrowseInput}
+            placeholder="browse by tag"
+          ></input>
+          <label className="browsetag__container-group-label" for="tagbrowse">
+            browse by tag
+          </label>
+        </div>
+      </form>
+
+      {dataToRender.map((data) => {
         return (
-          <div className = "returnedtasksbytags" key = {data}>
-            
-            <p key={data}>Title: {data.task}. Due day:{data.date}</p>
+          <div className="returnedtasksbytags" key={data}>
+            <p key={data}>
+              Title: {data.task}. Due day:{data.date}
+            </p>
           </div>
-        ); 
+        );
       })}
     </Card>
   );

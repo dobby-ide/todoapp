@@ -286,41 +286,40 @@ let finalid ="";
   };
 
   return (
-    <Card className="App">
+    <Card className="app__container">
       {/* passing the initial data to ToDoList component}*/}
-        <ToDoList
-          key = {listId}
-          sendingTaskToChangeList={sendingTaskToChangeList}
-          confirmChangeList={onChangingList}
-          onChangingList={onChangingList}
-          listId={listId}
-          listsname={listsname}
-          className="todolist"
-          sortByDate={sortByDate}
-          sortBydatenow={sortByDateNow}
-          tagging={tagName}
-          todolist={toDoList}
-          handleToggle={handleToggle}
-          deletingCrossed={handleDelete}
-          modifying={handleModifier}
-          up={onTaskUp}
-          down={onTaskDown}
-          changeList={changeList}
-          deletingATask={deletingATask}
-        >
-        </ToDoList>
-        <Form className="form" formHandler={formToApp}></Form>
-        <BrowseTagForm
-          className="browsetagform"
-          // browseFormHandler={bformToApp}
-          selectTag={onSelectingTag}
-          copyingList={toDoList}
-        />
-        <BrowseByTextForm
-          className="browsebytextform"
-          copiedlist={toDoList}
-          selectText={onSelectingText}
-        />
+      <ToDoList
+        key={listId}
+        sendingTaskToChangeList={sendingTaskToChangeList}
+        confirmChangeList={onChangingList}
+        onChangingList={onChangingList}
+        listId={listId}
+        listsname={listsname}
+        className="todolist"
+        sortByDate={sortByDate}
+        sortBydatenow={sortByDateNow}
+        tagging={tagName}
+        todolist={toDoList}
+        handleToggle={handleToggle}
+        deletingCrossed={handleDelete}
+        modifying={handleModifier}
+        up={onTaskUp}
+        down={onTaskDown}
+        changeList={changeList}
+        deletingATask={deletingATask}
+      ></ToDoList>
+      <Form className="addtask" formHandler={formToApp}></Form>
+      <BrowseTagForm
+        className="browsetagform"
+        // browseFormHandler={bformToApp}
+        selectTag={onSelectingTag}
+        copyingList={toDoList}
+      />
+      <BrowseByTextForm
+        className="browsebytextform"
+        copiedlist={toDoList}
+        selectText={onSelectingText}
+      />
     </Card>
   );
 }

@@ -23,34 +23,40 @@ const ToDoList = ({
 }) => {
   return (
     <Card className="todolist">
-      <div>
-        {todolist.map((todo) => {
-          return (
-            <div key={todo.id}>
-              <ToDo
+      {todolist.map((todo) => {
+        return (
+          <div key={todo.id} className="todolist__item">
+            <ToDo
               deletingATask={deletingATask}
               todolist={todolist}
-                sendingTaskToChangeList={sendingTaskToChangeList}
-                callTodo={callTodo}
-                onConfirmFromApp={confirmChangeList}
-                appTochangeList={onChangingList}
-                changeList={changeList}
-                listId={listId}
-                listsname={listsname}
-                key={todo.id}
-                todo={todo}
-                handleToggle={handleToggle}
-                modifying={modifying}
-                tagging={tagging}
-                up={up}
-                down={down}
-              />{" "}
-            </div>
-          );
-        })}
-        <button onClick={deletingCrossed}>delete crossed</button>
-        <button onClick={sortByDate}>sort by date</button>
-        <button onClick={sortBydatenow}>sort by last modification time</button>
+              sendingTaskToChangeList={sendingTaskToChangeList}
+              callTodo={callTodo}
+              onConfirmFromApp={confirmChangeList}
+              appTochangeList={onChangingList}
+              changeList={changeList}
+              listId={listId}
+              listsname={listsname}
+              key={todo.id}
+              todo={todo}
+              handleToggle={handleToggle}
+              modifying={modifying}
+              tagging={tagging}
+              up={up}
+              down={down}
+            />{' '}
+          </div>
+        );
+      })}
+      <div className="todolist__container">
+        <div onClick={deletingCrossed} className="todolist__container--btn">
+          delete crossed
+        </div>
+        <div onClick={sortByDate} className="todolist__container--btn">
+          sort by date
+        </div>
+        <div className="todolist__container--btn" onClick={sortBydatenow}>
+          sort by last modified
+        </div>
       </div>
     </Card>
   );

@@ -27,14 +27,27 @@ const onTextSubmit=()=>{
 }
 
     return (
-      <Card className = "browsebytextform">
-        <div><form><div><label>search task by word(s)</label>
-        <input type="text" onChange={onTextChange}></input></div>
-        <div></div>
-        </form></div>
-        <div>{searchedText.map((text)=>{
-            return (<div key={text}>{text}</div>)
-        })}</div>
+      <Card className="browsebytextform">
+        <form className="browsebytextform-main">
+          <div className="browsebytextform-main--group">
+            <input
+              placeholder="browse by word"
+              id="browsebytext"
+              className="browsebytextform-main--input"
+              type="text"
+              onChange={onTextChange}
+            ></input>
+            <label for="browsebytext" className="browsebytextform-main--label">
+              browse by word
+            </label>
+          </div>
+        </form>
+
+        <div>
+          {searchedText.map((text) => {
+            return <div key={text}>{text}</div>;
+          })}
+        </div>
       </Card>
     );
 

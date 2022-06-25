@@ -7,7 +7,7 @@ import Route from "./Route";
 import Info from "./Info";
 import Instructions from "./Instructions";
 
-
+//MAIN Component before index.js
 
 const Mom = () => {
    
@@ -77,21 +77,19 @@ const childFunc = React.useRef(null);
     
      return (
        <Card className="momcontainer">
-         <div>
-           <Route path="/">
-             <div>
+             <div className="momcontainer__menu">
                <Menu listsnames={newToDoList} viewChoice={viewChoice}></Menu>
+               </div>
+
+
+
                {choiceofview === "HOME" && (
-                 <div>
+                 <div className="todolist__container">
                    {newToDoList.map((list) => {
                      return (
-                       <div key={list}>
-                         <div>To-Do list: {list}</div>
-                         <div>
-                           <button onClick={() => deleteThisList(list)}>
-                             Delete this List
-                           </button>
-                         </div>
+                       <div key={list} className="todolist__container-main">
+                         <h3 className="u-center-header">To-Do list: {list}</h3>
+
                          <App
                            key={list}
                            childFunc={childFunc}
@@ -100,18 +98,22 @@ const childFunc = React.useRef(null);
                            retrieveToDoListFromApp={toDoList}
                            listId={list}
                            passonlyif={
-                             listNameFromToDo == list ? taskToAdd : -1
+                             listNameFromToDo === list ? taskToAdd : -1
                            }
                          ></App>
+                         
+                           <div className="todolist__container-delete-btn" onClick={() => deleteThisList(list)}>
+                             Delete the List
+                           </div>
+                         
                        </div>
                      );
                    })}
                  </div>
                )}
-               <button onClick={editingModeForNewListCreation}>
+               <div onClick={editingModeForNewListCreation} className="momcontainer__newlist-btn">
                  create a new list
-               </button>
-
+               </div>
                {listName ? (
                  <div>
                    <label>enter the list name</label>
@@ -122,12 +124,10 @@ const childFunc = React.useRef(null);
                  <div></div>
                )}
                {choiceofview === "INSTRUCTIONS" && (
-                 <Instructions key={choiceofview}></Instructions>
+                 <Instructions></Instructions>
                )}
-               {choiceofview === "INFO" && <Info key={choiceofview}></Info>}
-             </div>
-           </Route>
-         </div>
+               {choiceofview === "INFO" && <Info></Info>}
+             
        </Card>
      );
  

@@ -1,0 +1,52 @@
+
+@import "components/buttons";
+@import "utilities/headings";
+@import "components/forms";
+@import "layouts/menu";
+@import "layouts/todolist";
+@import "layouts/todo";
+
+  *{
+    font-family: "Lato", sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+font-size:10px;
+}
+
+.momcontainer{
+  
+  height:3rem;
+  width:100%;
+  font-size: 1.5rem;
+  position:relative;
+  background-color: aqua;
+  margin-left:50%;
+  transform:translateX(-50%);
+  margin-top:1rem;
+  &__menu{
+    width:50%;
+    margin:0 auto ;
+    border: 1px solid black;
+    background-color: antiquewhite;
+  }
+}
+.todolist__container{
+ display:flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+  padding:20px;
+  border:1px solid black;
+  &-main{
+    
+    position:relative;
+    border:1px solid black;
+  }
+}
+.strike {
+   text-decoration: line-through;
+   cursor: pointer;
+}

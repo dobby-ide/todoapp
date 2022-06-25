@@ -19,13 +19,31 @@ const Form = ({ formHandler }) => {
   };
   return (
     <Card className="form">
-      <div>
-        <form>
-          <label>Add a task</label>
-          <input type="text" name="input" onChange={changesTransformer}></input>
-          <input type="date" name="date" onChange={changesTransformer} />
-          <button type="submit" onClick={onSubmitHandler}>
-            submit
+      <div className="addatask-form">
+        <form className="addatask-form-main">
+          <input
+            placeholder="new task"
+            className="addatask-form-main-input"
+            id="addtask"
+            type="text"
+            name="input"
+            onChange={changesTransformer}
+          ></input>
+          <label className="addatask-form-main-label" for="addtask">
+            new task
+          </label>
+          <input
+            type="date"
+            name="date"
+            onChange={changesTransformer}
+            className="addatask-form-main-input"
+          />
+          <button
+            className="addatask-form-main-btn"
+            type="submit"
+            onClick={onSubmitHandler}
+          >
+            ok
           </button>
         </form>
       </div>
