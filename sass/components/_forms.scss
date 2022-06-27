@@ -55,7 +55,7 @@
     }
     &-label{
       font-family: inherit;
-      transition: all 3s;
+      transition: all .3s;
       font-size: smaller;
       margin-left:1.5rem;
       display:block;
@@ -67,3 +67,23 @@
     }
   }
 }
+//new list create
+ .momcontainer__newlist{
+    &-group{}
+    &-label{font-family: inherit;
+      transition: all .3s;
+      font-size: smaller;
+      margin-left:1.5rem;
+      display:block;}
+    &-input{ padding:1rem;
+    &:invalid{
+      background-color: red;
+      border-bottom: 3px solid red;
+    }
+  }
+    &-input:placeholder-shown ~ &-label{
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(-3rem);
+    }
+  }

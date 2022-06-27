@@ -1,10 +1,16 @@
 .menu__buttons-btn {
+  text-transform: uppercase;
   margin: 3rem;
   padding: 1rem;
-  font-size: 2rem;
-  color: white;
-  background-color: #f1425d;
-  cursor: pointer; }
+  font-size: 1.4rem;
+  color: #090909;
+  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #e1ff00 50%);
+  background-size: 240%;
+  cursor: pointer;
+  transition: all .3s; }
+  .menu__buttons-btn:hover, .menu__buttons-btn:active {
+    background-position: 100%;
+    color: green; }
 
 .todolist__container-delete-btn {
   position: absolute;
@@ -24,6 +30,13 @@
   color: white;
   background-color: #f1425d;
   cursor: pointer; }
+  .momcontainer__newlist-btn--create {
+    width: 9rem;
+    padding: 1rem;
+    font-size: 2rem;
+    color: white;
+    background-color: #f1425d;
+    cursor: pointer; }
 
 .u-center-header {
   font-size: 1.4rem;
@@ -66,7 +79,7 @@
 
 .browsetag__container-group-label {
   font-family: inherit;
-  transition: all 3s;
+  transition: all .3s;
   font-size: smaller;
   margin-left: 1.5rem;
   display: block; }
@@ -76,14 +89,46 @@
   visibility: hidden;
   transform: translateY(-3rem); }
 
-.menu__buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly; }
+.momcontainer__newlist-label {
+  font-family: inherit;
+  transition: all .3s;
+  font-size: smaller;
+  margin-left: 1.5rem;
+  display: block; }
+
+.momcontainer__newlist-input {
+  padding: 1rem; }
+  .momcontainer__newlist-input:invalid {
+    background-color: red;
+    border-bottom: 3px solid red; }
+
+.momcontainer__newlist-input:placeholder-shown ~ .momcontainer__newlist-label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-3rem); }
+
+.menu {
+  position: relative;
+  width: auto;
+  height: 6rem; }
+  .menu__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly; }
+  .menu__available-lists {
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    height: auto;
+    top: 0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    background-color: #ababab;
+    width: 50rem; }
 
 .app__container {
-  border: 1px solid black;
-  background-color: orangered;
+  background-color: #c4c4c4;
   padding: 1rem;
   display: grid;
   width: 120rem;
@@ -213,22 +258,18 @@ html {
   width: 100%;
   font-size: 1.5rem;
   position: relative;
-  background-color: aqua;
   margin-left: 50%;
   transform: translateX(-50%);
   margin-top: 1rem; }
   .momcontainer__menu {
     width: 50%;
-    margin: 0 auto;
-    border: 1px solid black;
-    background-color: antiquewhite; }
+    margin: 0 auto; }
 
 .todolist__container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 20px;
-  border: 1px solid black; }
+  padding: 20px; }
   .todolist__container-main {
     position: relative;
     border: 1px solid black; }
@@ -236,3 +277,21 @@ html {
 .strike {
   text-decoration: line-through;
   cursor: pointer; }
+
+.info {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 3rem;
+  font-size: 1.6rem; }
+  .info__header {
+    margin-bottom: 2rem;
+    text-align: center; }
+
+.instructions {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 3rem;
+  font-size: 1.6rem; }
+  .instructions__header {
+    margin-bottom: 2rem;
+    text-align: center; }

@@ -67,69 +67,84 @@ const childFunc = React.useRef(null);
     //finish the editing mode to create a new list
     setListName(false);
     const j = [...newToDoList];
-    j.push(newList);
-    setNewToDoList(j);
+    if (newList === '') {
+      console.log('silly me');
+    } else {
+      j.push(newList);
+      setNewToDoList(j);
+    }
   };
 
   const editingModeForNewListCreation = () => {
     setListName(true);
   };
-    
-     return (
-       <Card className="momcontainer">
-             <div className="momcontainer__menu">
-               <Menu listsnames={newToDoList} viewChoice={viewChoice}></Menu>
-               </div>
 
+  return (
+    <Card className="momcontainer">
+      <div className="momcontainer__menu">
+        <Menu listsnames={newToDoList} viewChoice={viewChoice}></Menu>
+      </div>
 
+      {choiceofview === 'HOME' && (
+        <div className="todolist__container">
+          {newToDoList.map((list) => {
+            return (
+              <div key={list} className="todolist__container-main">
+                <h3 className="u-center-header">To-Do list: {list}</h3>
 
-               {choiceofview === "HOME" && (
-                 <div className="todolist__container">
-                   {newToDoList.map((list) => {
-                     return (
-                       <div key={list} className="todolist__container-main">
-                         <h3 className="u-center-header">To-Do list: {list}</h3>
+                <App
+                  key={list}
+                  childFunc={childFunc}
+                  listsname={newToDoList}
+                  sendingTaskToChangeList={retrieveTaskToChangeList}
+                  retrieveToDoListFromApp={toDoList}
+                  listId={list}
+                  passonlyif={listNameFromToDo === list ? taskToAdd : -1}
+                ></App>
 
-                         <App
-                           key={list}
-                           childFunc={childFunc}
-                           listsname={newToDoList}
-                           sendingTaskToChangeList={retrieveTaskToChangeList}
-                           retrieveToDoListFromApp={toDoList}
-                           listId={list}
-                           passonlyif={
-                             listNameFromToDo === list ? taskToAdd : -1
-                           }
-                         ></App>
-                         
-                           <div className="todolist__container-delete-btn" onClick={() => deleteThisList(list)}>
-                             Delete the List
-                           </div>
-                         
-                       </div>
-                     );
-                   })}
-                 </div>
-               )}
-               <div onClick={editingModeForNewListCreation} className="momcontainer__newlist-btn">
-                 create a new list
-               </div>
-               {listName ? (
-                 <div>
-                   <label>enter the list name</label>
-                   <input type="text" onChange={onNameList}></input>
-                   <button onClick={createNewList}>confirm</button>
-                 </div>
-               ) : (
-                 <div></div>
-               )}
-               {choiceofview === "INSTRUCTIONS" && (
-                 <Instructions></Instructions>
-               )}
-               {choiceofview === "INFO" && <Info></Info>}
-             
-       </Card>
-     );
+                <div
+                  className="todolist__container-delete-btn"
+                  onClick={() => deleteThisList(list)}
+                >
+                  Delete the List
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+      <div
+        onClick={editingModeForNewListCreation}
+        className="momcontainer__newlist-btn"
+      >
+        new list
+      </div>
+      {listName ? (
+        <div className="momcontainer__newlist-group">
+          <input
+            id="new list"
+            placeholder="enter the list name"
+            className="momcontainer__newlist-input"
+            type="text"
+            onChange={onNameList}
+          ></input>
+          <label htmlFor="new list" className="momcontainer__newlist-label">
+            enter the list name
+          </label>
+          <div
+            className="momcontainer__newlist-btn--create"
+            onClick={createNewList}
+          >
+            confirm
+          </div>
+        </div>
+      ) : (
+        <div></div>
+      )}
+      {choiceofview === 'INSTRUCTIONS' && <Instructions></Instructions>}
+      {choiceofview === 'INFO' && <Info></Info>}
+    </Card>
+  );
  
 };
 export default Mom;
