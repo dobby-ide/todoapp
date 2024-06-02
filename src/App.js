@@ -6,7 +6,6 @@ import BrowseTagForm from "./BrowseTagForm";
 import BrowseByTextForm from "./BrowseByTextForm";
 
 function App({
-  
   retrieveToDoListFromApp,
   listId,
   listsname,
@@ -14,59 +13,49 @@ function App({
   onChangingList,
   changeList,
   sendingTaskToChangeList,
- 
 }) {
   var options = {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
   };
-  
-  
-  
 
   const [toDoList, setTodoList] = useState([]);
   const deletingATask = (e) => {
-    
     let j = [...toDoList];
-  
-    for(let i=0;i<j.length;i++){
-      console.log(j[i].id)
-      if(j[i].id==e){
-        console.log(j[i].id)
-        j.splice(i,1)
+
+    for (let i = 0; i < j.length; i++) {
+      console.log(j[i].id);
+      if (j[i].id === e) {
+        console.log(j[i].id);
+        j.splice(i, 1);
       }
-
-
     }
-     for(let i=0;i<j.length;i++){
-       if(j[i].id!=i+1){
-         j[i].id = i+1;
-       }
-     }
-   setTodoList(j)
-    
+    for (let i = 0; i < j.length; i++) {
+      if (j[i].id !== i + 1) {
+        j[i].id = i + 1;
+      }
+    }
+    setTodoList(j);
   };
- 
- useEffect(()=>{
-  if (passonlyif != -1) {
-  
-    let temp = [...toDoList];
-let finalid ="";
-    for(let i = 0;i<temp.length;i++){
-       finalid = temp[i].id;
+
+  useEffect(() => {
+    if (passonlyif !== -1) {
+      let temp = [...toDoList];
+      let finalid = '';
+      for (let i = 0; i < temp.length; i++) {
+        finalid = temp[i].id;
+      }
+      passonlyif.id = finalid + 1;
+      //change passonlyif id depending on the last id of the todolist
+      temp.push(passonlyif);
+
+      setTodoList(temp);
     }
-    passonlyif.id = finalid+1;
-    //change passonlyif id depending on the last id of the todolist
-    temp.push(passonlyif);
-    
-    setTodoList(temp)
-  }},[passonlyif])
-  
+  }, [passonlyif]);
 
   const passingTodoListToMom = (e) => {
-   
     retrieveToDoListFromApp(e);
   };
   passingTodoListToMom(toDoList);
@@ -76,18 +65,16 @@ let finalid ="";
   };
   //retrieve the enetered tag through a select option and gives back only those task that matches
 
-  const onSelectingTag = (e) => {
-    
-  };
+  const onSelectingTag = (e) => {};
 
   //ON TASK UP (TASK GOES UP WHEN BUTTON IS PRESSED)
   //to implement: id should not change
   const onTaskUp = (e) => {
     const j = [...toDoList];
-   
+
     for (let i = 0; i < j.length; i++) {
       //IF e matches with the id in that part of todolist..
-      if (j[i].id == e && j[i] !== j[0]) {
+      if (j[i].id === e && j[i] !== j[0]) {
         //we need to create a new array where
         //j[i] is above j[i-1] and all the other elements of the array will remain the same
         let temp = j[i - 1];
@@ -100,10 +87,10 @@ let finalid ="";
   //ON TASK DOWN
   const onTaskDown = (e) => {
     const j = [...toDoList];
-   
+
     for (let i = j.length - 1; i >= 0; i--) {
       //IF e matches with the id in that part of todolist..
-      if (j[i].id == e && j[i] !== j[j.length - 1]) {
+      if (j[i].id === e && j[i] !== j[j.length - 1]) {
         const temp = j[i];
         j[i] = j[i + 1];
         j[i + 1] = temp;
@@ -121,7 +108,7 @@ let finalid ="";
           task: element.task,
           complete: false,
           date: element.date,
-          tag: element.tag + " " + "#" + e.tag,
+          tag: `${element.tag} #${e.tag}`,
         };
       }
     });
@@ -136,7 +123,6 @@ let finalid ="";
     for (let tt = 0; tt < j.length; tt++) {
       let time = j[tt].datenow;
       timeDate.push(time);
-     
     }
     //oldTimeDate is timeDate before being sorted
     let oldTimeDate = [...timeDate];
@@ -182,14 +168,12 @@ let finalid ="";
       //else push that number to timeDate
 
       while (timeDate.includes(time)) {
-      
         time++;
       }
 
       timeDate.push(time);
     }
 
-    
     let oldTimeDate = [...timeDate];
 
     timeDate.sort(function (a, b) {
@@ -198,7 +182,7 @@ let finalid ="";
     const orderedArray = timeDate.map(function (old) {
       return oldTimeDate.indexOf(old);
     });
-  
+
     for (let i = 0; i < j.length; i++) {
       let task = j[orderedArray[i]].task;
       let tag = j[orderedArray[i]].tag;
@@ -211,7 +195,7 @@ let finalid ="";
         task: task,
         tag: tag,
         complete: complete,
-        date: new Date(timeDate[i]).toLocaleDateString("en-US", options),
+        date: new Date(timeDate[i]).toLocaleDateString('en-US', options),
         datenow: datenow,
       };
 
@@ -223,9 +207,9 @@ let finalid ="";
   const handleModifier = (e) => {
     let jm = [...toDoList];
     jm.forEach((element) => {
-      if (element.id == Number(e.id)) {
+      if (element.id === Number(e.id)) {
         for (let i = 0; i < jm.length; i++) {
-          if (jm[i].id == element.id) {
+          if (jm[i].id === element.id) {
             jm[i] = {
               id: e.id,
               task: e.task,
@@ -241,8 +225,7 @@ let finalid ="";
     setTodoList(jm);
   };
   const formToApp = (e) => {
-    if (e.date == "") {
-     
+    if (e.date === '') {
       let j = [
         ...toDoList,
         {
@@ -250,7 +233,7 @@ let finalid ="";
           task: e.input,
           complete: false,
           date: 0,
-          tag: "",
+          tag: '',
           datenow: Date.now(),
         },
       ];
@@ -262,8 +245,8 @@ let finalid ="";
           id: toDoList.length + 1,
           task: e.input,
           complete: false,
-          date: new Date(e.date).toLocaleDateString("en-US", options),
-          tag: "",
+          date: new Date(e.date).toLocaleDateString('en-US', options),
+          tag: '',
           datenow: Date.now(),
         },
       ];
@@ -278,7 +261,7 @@ let finalid ="";
   };
   const handleToggle = (id) => {
     let mapped = toDoList.map((task) => {
-      return task.id == id
+      return task.id === id
         ? { ...task, complete: !task.complete }
         : { ...task };
     });

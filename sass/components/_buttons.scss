@@ -10,7 +10,7 @@
   transition:all .3s;
    &:hover,&:active{
   background-position: 100%;
-  color:green;
+  color:rgb(239, 13, 13);
  }
 }
 .todolist__container-delete-btn{
@@ -25,20 +25,20 @@
   cursor:pointer;
 }
 .momcontainer__newlist-btn{
-  
+
  &--create{
   width:9rem;
   padding:1rem;
   font-size:2rem;
   color:white;
-  background-color:#f1425d;
+  background-color:#d3c9ca;
   cursor:pointer;
 }
   width:9rem;
   padding:1rem;
   font-size:2rem;
   color:white;
-  background-color:#f1425d;
+  background-color:#433638;
   cursor:pointer;
 }
 //Add a task button

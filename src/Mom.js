@@ -10,43 +10,33 @@ import Instructions from "./Instructions";
 //MAIN Component before index.js
 
 const Mom = () => {
-   
   //this state will render the actual number of list
-  const [newToDoList, setNewToDoList] = useState(["original"]);
-  
+  const [newToDoList, setNewToDoList] = useState(['original']);
 
   //editing mode to give a name to my list
   const [listName, setListName] = useState(false);
-  const [newList, setNewList] = useState("");
-  const[listNameFromToDo,setListNameFromToDo]= useState("")
+  const [newList, setNewList] = useState('');
+  const [listNameFromToDo, setListNameFromToDo] = useState('');
   //this is the place where the updateTodoLists are shown: todolist is the different todolists coming from all the rendered App components
-  const[taskToAdd,setTaskToAdd]=useState({})
-  const[choiceofview,setChoiceofview] = useState("");
-  const viewChoice=(e)=>{
- 
+  const [taskToAdd, setTaskToAdd] = useState({});
+  const [choiceofview, setChoiceofview] = useState('');
+  const viewChoice = (e) => {
     setChoiceofview(e);
-//set the e equal to a state and use that state
-// to give a conditional rendering
-  }
+    //set the e equal to a state and use that state
+    // to give a conditional rendering
+  };
 
+  const childFunc = React.useRef(null);
+  const retrieveTaskToChangeList = (e, r) => {
+    setListNameFromToDo(r);
+    setTaskToAdd(e);
+  };
 
-const childFunc = React.useRef(null);
-  const retrieveTaskToChangeList = (e,r)=>{
-  
-  setListNameFromToDo(r)
-  setTaskToAdd(e)
-  
-}
-
-  const toDoList=(e)=>{
-  
- 
-  return e;
-}
-
+  const toDoList = (e) => {
+    return e;
+  };
 
   const deleteThisList = (e) => {
-    
     //setNewToDoList without e
     const j = [...newToDoList];
     for (let i = 0; i < j.length; i++) {
@@ -59,7 +49,7 @@ const childFunc = React.useRef(null);
   };
   const onNameList = (e) => {
     e.preventDefault();
-   
+
     setNewList(e.target.value);
   };
 
@@ -131,12 +121,14 @@ const childFunc = React.useRef(null);
           <label htmlFor="new list" className="momcontainer__newlist-label">
             enter the list name
           </label>
-          <div
-            className="momcontainer__newlist-btn--create"
-            onClick={createNewList}
-          >
-            confirm
-          </div>
+          {newList.length > 2 && (
+            <div
+              className="momcontainer__newlist-btn--create"
+              onClick={createNewList}
+            >
+              confirm
+            </div>
+          )}
         </div>
       ) : (
         <div></div>
@@ -145,6 +137,5 @@ const childFunc = React.useRef(null);
       {choiceofview === 'INFO' && <Info></Info>}
     </Card>
   );
- 
 };
 export default Mom;

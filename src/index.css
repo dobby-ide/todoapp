@@ -1,2 +1,24 @@
+*,
+::after,
+::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box; }
 
+  ::-webkit-scrollbar{
+    width:0px;
+  }
 
+  .unicode-char {
+  font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Twemoji', 'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
+}
+body {
+	height: calc(132vh - 6em);
+	background:
+		var(--map,
+			linear-gradient(#a9a9a9, #ffffff8f)),
+		var(--pattern,
+			radial-gradient(closest-side, #ececec61, #ffffff5c) 0/ 1em 1em space);
+	background-blend-mode: multiply;
+
+}
