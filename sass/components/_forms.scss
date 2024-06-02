@@ -1,0 +1,89 @@
+//add a task FORM
+
+.addatask-form{
+  &-main{
+    display:flex;
+    flex-direction: column;;
+    &-input{
+      padding:1rem;
+    }
+    &-label{
+      
+     font-family: inherit;
+      transition: all .3s;
+      font-size: 1.4rem;
+      margin-left:1.2rem;
+      display:block;
+    }
+    &-input:placeholder-shown ~ &-label{
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(-3rem);
+    }
+  }
+}
+
+//browse by text form
+.browsebytextform{
+  &-main{
+    &--group{}
+    &--input{
+       padding:1rem;
+    }
+    &--label{
+      font-family: inherit;
+      transition: all .3s;
+      font-size: smaller;
+      margin-left:1.2rem;
+      display:block;
+    }
+    &--input:placeholder-shown ~ &--label{
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(-3rem);
+    }
+    
+  }
+}
+
+//browse by tag
+.browsetag__container{
+ 
+  &-group{
+    &-input{
+       padding:1rem;
+    }
+    &-label{
+      font-family: inherit;
+      transition: all .3s;
+      font-size: smaller;
+      margin-left:1.5rem;
+      display:block;
+    }
+    &-input:placeholder-shown ~ &-label{
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(-3rem);
+    }
+  }
+}
+//new list create
+ .momcontainer__newlist{
+    &-group{}
+    &-label{font-family: inherit;
+      transition: all .3s;
+      font-size: smaller;
+      margin-left:1.5rem;
+      display:block;}
+    &-input{ padding:1rem;
+    &:invalid{
+      background-color: red;
+      border-bottom: 3px solid red;
+    }
+  }
+    &-input:placeholder-shown ~ &-label{
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(-3rem);
+    }
+  }

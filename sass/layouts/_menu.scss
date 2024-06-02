@@ -1,0 +1,26 @@
+.menu{
+ position:relative;
+  width:auto;
+  height:6rem;
+ 
+
+ 
+  &__buttons{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  &__available-lists{
+    text-align:center;
+    color:white;
+    text-transform: uppercase;
+    
+    height:auto;
+    top:0;
+    margin-left:50%;
+    transform:translateX(-50%);
+    position:absolute;
+    background-color: rgb(171, 171, 171);
+    width: 50rem;
+  }
+}

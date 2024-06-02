@@ -1,0 +1,297 @@
+.menu__buttons-btn {
+  text-transform: uppercase;
+  margin: 3rem;
+  padding: 1rem;
+  font-size: 1.4rem;
+  color: #090909;
+  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #e1ff00 50%);
+  background-size: 240%;
+  cursor: pointer;
+  transition: all .3s; }
+  .menu__buttons-btn:hover, .menu__buttons-btn:active {
+    background-position: 100%;
+    color: green; }
+
+.todolist__container-delete-btn {
+  position: absolute;
+  top: 5rem;
+  right: -9rem;
+  width: 9rem;
+  padding: 1rem;
+  font-size: 2rem;
+  color: white;
+  background-color: #f1425d;
+  cursor: pointer; }
+
+.momcontainer__newlist-btn {
+  width: 9rem;
+  padding: 1rem;
+  font-size: 2rem;
+  color: white;
+  background-color: #f1425d;
+  cursor: pointer; }
+  .momcontainer__newlist-btn--create {
+    width: 9rem;
+    padding: 1rem;
+    font-size: 2rem;
+    color: white;
+    background-color: #f1425d;
+    cursor: pointer; }
+
+.u-center-header {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 2rem; }
+
+.addatask-form-main {
+  display: flex;
+  flex-direction: column; }
+  .addatask-form-main-input {
+    padding: 1rem; }
+  .addatask-form-main-label {
+    font-family: inherit;
+    transition: all .3s;
+    font-size: 1.4rem;
+    margin-left: 1.2rem;
+    display: block; }
+  .addatask-form-main-input:placeholder-shown ~ .addatask-form-main-label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-3rem); }
+
+.browsebytextform-main--input {
+  padding: 1rem; }
+
+.browsebytextform-main--label {
+  font-family: inherit;
+  transition: all .3s;
+  font-size: smaller;
+  margin-left: 1.2rem;
+  display: block; }
+
+.browsebytextform-main--input:placeholder-shown ~ .browsebytextform-main--label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-3rem); }
+
+.browsetag__container-group-input {
+  padding: 1rem; }
+
+.browsetag__container-group-label {
+  font-family: inherit;
+  transition: all .3s;
+  font-size: smaller;
+  margin-left: 1.5rem;
+  display: block; }
+
+.browsetag__container-group-input:placeholder-shown ~ .browsetag__container-group-label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-3rem); }
+
+.momcontainer__newlist-label {
+  font-family: inherit;
+  transition: all .3s;
+  font-size: smaller;
+  margin-left: 1.5rem;
+  display: block; }
+
+.momcontainer__newlist-input {
+  padding: 1rem; }
+  .momcontainer__newlist-input:invalid {
+    background-color: red;
+    border-bottom: 3px solid red; }
+
+.momcontainer__newlist-input:placeholder-shown ~ .momcontainer__newlist-label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-3rem); }
+
+.menu {
+  position: relative;
+  width: auto;
+  height: 6rem; }
+  .menu__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly; }
+  .menu__available-lists {
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    height: auto;
+    top: 0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    background-color: #ababab;
+    width: 50rem; }
+
+.app__container {
+  background-color: #c4c4c4;
+  padding: 1rem;
+  display: grid;
+  width: 120rem;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  column-gap: 3rem;
+  row-gap: 4rem;
+  justify-content: center; }
+
+.form {
+  margin-bottom: 3rem;
+  width: 90%;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  grid-column-start: 1;
+  grid-column-end: 2; }
+
+.todolist {
+  margin-top: -10rem;
+  position: relative;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 5; }
+  .todolist__container {
+    display: flex;
+    justify-content: center; }
+    .todolist__container--btn {
+      cursor: pointer;
+      text-align: center;
+      font-size: 1rem;
+      height: 3rem;
+      width: 12rem;
+      padding: 1rem;
+      margin: 2px;
+      border: 1px solid black; }
+  .todolist__item {
+    margin-bottom: 2rem;
+    margin-left: 50%;
+    transform: translate(-50%); }
+
+.browsetagform {
+  margin-right: 3rem;
+  width: 12rem;
+  height: 3rem;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  grid-column-start: 3;
+  grid-column-end: 3; }
+
+.browsebytextform {
+  height: 3rem;
+  width: 12rem;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  grid-column-start: 4;
+  grid-column-end: 4; }
+
+.todo__container {
+  position: relative;
+  padding: 1rem;
+  margin-top: 6rem;
+  margin-left: -17.5rem;
+  width: 60rem;
+  border: 1px solid white;
+  display: grid;
+  grid-template-columns: 1rem;
+  justify-content: left;
+  grid-gap: 1rem; }
+  .todo__container-todoid {
+    width: 3rem;
+    height: auto;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 4px;
+    margin-left: 5px;
+    grid-row-start: 1;
+    grid-column-start: 2; }
+  .todo__container-task {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: 100;
+    overflow: hidden;
+    width: 35rem;
+    height: auto;
+    text-align: left;
+    border: 1px solid white;
+    border-radius: 4px;
+    margin-right: 3rem;
+    grid-row-start: 1;
+    grid-column-start: 3;
+    grid-column-end: 5; }
+  .todo__container-tag {
+    margin-right: 3rem;
+    grid-row-start: 2;
+    grid-column-start: 3; }
+  .todo__container-modify-btn {
+    grid-row-start: 1;
+    grid-column-start: 6; }
+    .todo__container-modify-btn-div {
+      padding: 1rem;
+      border: 1px solid white;
+      background-color: #fff;
+      border-radius: 3px;
+      cursor: pointer; }
+  .todo__container-date {
+    grid-row-start: 2;
+    grid-column-start: 6; }
+  .todo__container-up {
+    grid-row-start: 1;
+    grid-column-start: 1; }
+  .todo__container-down {
+    grid-row-start: 2;
+    grid-column-start: 1; }
+
+* {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 10px; }
+
+.momcontainer {
+  height: 3rem;
+  width: 100%;
+  font-size: 1.5rem;
+  position: relative;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 1rem; }
+  .momcontainer__menu {
+    width: 50%;
+    margin: 0 auto; }
+
+.todolist__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 20px; }
+  .todolist__container-main {
+    position: relative;
+    border: 1px solid black; }
+
+.strike {
+  text-decoration: line-through;
+  cursor: pointer; }
+
+.info {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 3rem;
+  font-size: 1.6rem; }
+  .info__header {
+    margin-bottom: 2rem;
+    text-align: center; }
+
+.instructions {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 3rem;
+  font-size: 1.6rem; }
+  .instructions__header {
+    margin-bottom: 2rem;
+    text-align: center; }
